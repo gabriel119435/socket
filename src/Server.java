@@ -3,7 +3,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class Servidor {
+public class Server {
 	public static void main(String[] args) throws IOException {
 		ServerSocket server = new ServerSocket(12345);
 		System.out.println("open port 12345!");
