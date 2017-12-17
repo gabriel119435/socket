@@ -8,17 +8,16 @@ import java.util.Scanner;
 public class Cliente {
 	public static void main(String[] args) throws UnknownHostException, IOException {
 		Socket cliente = new Socket("127.0.0.1", 12345);
-		System.out.println("O cliente se conectou ao servidor!");
+		System.out.println("the client has connected with server!");
 
-		Scanner teclado = new Scanner(System.in);
-		PrintStream saida = new PrintStream(cliente.getOutputStream());
+		Scanner keyboard = new Scanner(System.in);
+		PrintStream output = new PrintStream(cliente.getOutputStream());
 
-		while (teclado.hasNextLine()) {
-			saida.println(teclado.nextLine());
+		while (keyboard.hasNextLine()) {
+			output.println(keyboard.nextLine());
 		}
-
-		teclado.close();
-		saida.close();
+		keyboard.close();
+		output.close();
 		cliente.close();
 	}
 }

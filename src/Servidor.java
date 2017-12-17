@@ -5,23 +5,20 @@ import java.util.Scanner;
 
 public class Servidor {
 	public static void main(String[] args) throws IOException {
-		ServerSocket servidor = new ServerSocket(12345);
-		System.out.println("Porta 12345 aberta!");
+		ServerSocket server = new ServerSocket(12345);
+		System.out.println("open port 12345!");
 
-		Socket cliente = servidor.accept();
-		System.out.println("Nova conexão com o cliente "
-							+ cliente.getInetAddress().getHostAddress() 
-							+ ".");
+		Socket client = server.accept();
+		System.out.println("new connection with client " + client.getInetAddress().getHostAddress() + ".");
 
-		Scanner entrada = new Scanner(cliente.getInputStream());
+		Scanner input = new Scanner(client.getInputStream());
 		System.out.println("before while");
-		while (entrada.hasNextLine()) {
-			System.out.println(entrada.nextLine());
+		while (input.hasNextLine()) {
+			System.out.println(input.nextLine());
 		}
-
-		entrada.close();
-		cliente.close();
-		servidor.close();
+		input.close();
+		client.close();
+		server.close();
 		System.out.println("closed everything");
 	}
 }
